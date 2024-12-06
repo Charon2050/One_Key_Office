@@ -4,6 +4,8 @@
 
 ## 用法
 
+0. 关闭杀毒软件。
+
 1. 在本项目的 Release 页面中[下载 One_Key_Office.cmd](https://github.com/Charon2050/One_Key_Office/releases/download/v1.0/One_Key_Office.cmd)；
 
 2. 运行本脚本。
