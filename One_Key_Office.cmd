@@ -15,6 +15,7 @@
 ::    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 @echo off
+chcp 65001
 
 net session >nul 2>&1
 if %errorlevel% neq 0 (
@@ -31,6 +32,12 @@ echo ^<Configuration ID="90ccfe8f-4187-43db-b0cc-aea40cd487fe"^>^<Add OfficeClie
 @if not exist "setup.exe" (
     echo 正在从 officecdn.microsoft.com 下载微软官方 Office 安装器...
     certutil -urlcache -split -f https://officecdn.microsoft.com/pr/wsus/setup.exe
+)
+
+@if not exist "setup.exe" (
+    echo 下载失败，请检查杀毒软件是否处于关闭状态，然后重启本程序。
+    pause
+    exit /b
 )
 
 echo 开始安装 Office...
