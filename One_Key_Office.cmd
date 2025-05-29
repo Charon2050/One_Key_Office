@@ -18,7 +18,7 @@
 
 net session >nul 2>&1
 if %errorlevel% neq 0 (
-    echo Î´ÒÔ¹ÜÀíÔ±È¨ÏŞÔËĞĞ£¬ÕıÔÚÇëÇó¹ÜÀíÔ±È¨ÏŞ...
+    echo æœªä»¥ç®¡ç†å‘˜æƒé™è¿è¡Œï¼Œæ­£åœ¨è¯·æ±‚ç®¡ç†å‘˜æƒé™...
     PowerShell -Command "Start-Process '%~dpnx0' -Verb RunAs"
     exit /b
 )
@@ -29,22 +29,17 @@ echo ^<Configuration ID="90ccfe8f-4187-43db-b0cc-aea40cd487fe"^>^<Add OfficeClie
 
 
 @if not exist "setup.exe" (
-    echo ÕıÔÚ´Ó officecdn.microsoft.com ÏÂÔØÎ¢Èí¹Ù·½ Office °²×°Æ÷...
+    echo æ­£åœ¨ä» officecdn.microsoft.com ä¸‹è½½å¾®è½¯å®˜æ–¹ Office å®‰è£…å™¨...
     certutil -urlcache -split -f https://officecdn.microsoft.com/pr/wsus/setup.exe
 )
 
-echo ¿ªÊ¼°²×° Office...
+echo å¼€å§‹å®‰è£… Office...
 setup.exe /configure Configuration.xml
 
-@if not exist "Ohook_Activation_AIO.cmd" (
-    echo ÕıÔÚ´Ó dev.azure.com ÏÂÔØ MAS ¼¤»îÆ÷...
-    certutil -urlcache -split -f https://dev.azure.com/massgrave/e5e7ca26-b96c-4887-b3d8-ce10a5bdee05/_apis/git/repositories/a5c49950-3666-490e-afa6-1c2c2d29815e/items?path=/MAS/Separate-Files-Version/Activators/Ohook_Activation_AIO.cmd&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&resolveLfs=true&%24format=octetStream&api-version=5.0&download=true
-)
-
-echo ÕıÔÚ¼¤»î...
-call Ohook_Activation_AIO.cmd /Ohook
+echo æ­£åœ¨æ¿€æ´»...
+powershell -Command "& {& ([ScriptBlock]::Create((irm https://get.activated.win))) /HWID /Ohook}"
 
 echo,
 echo,
-echo Office °²×°²¢¼¤»îÍê³É£¡
+echo Office å®‰è£…å¹¶æ¿€æ´»å®Œæˆï¼
 pause
