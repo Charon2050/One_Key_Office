@@ -25,7 +25,7 @@ if %errorlevel% neq 0 (
 
 cd /D %temp%
 
-echo ^<Configuration ID="90ccfe8f-4187-43db-b0cc-aea40cd487fe"^>^<Add OfficeClientEdition="64" Channel="Current"^>^<Product ID="O365ProPlusRetail"^>^<Language ID="MatchOS" /^>^<ExcludeApp ID="Access" /^>^<ExcludeApp ID="Groove" /^>^<ExcludeApp ID="Lync" /^>^<ExcludeApp ID="OneDrive" /^>^<ExcludeApp ID="OneNote" /^>^<ExcludeApp ID="Outlook" /^>^<ExcludeApp ID="Publisher" /^>^<ExcludeApp ID="Teams" /^>^<ExcludeApp ID="Bing" /^>^</Product^>^</Add^>^<Property Name="SharedComputerLicensing" Value="0" /^>^<Property Name="FORCEAPPSHUTDOWN" Value="TRUE" /^>^<Property Name="DeviceBasedLicensing" Value="0" /^>^<Property Name="SCLCacheOverride" Value="0" /^>^<Updates Enabled="TRUE" /^>^<RemoveMSI /^>^</Configuration^> > Configuration.xml
+echo ^<Configuration ID="90ccfe8f-4187-43db-b0cc-aea40cd487fe"^>^<Add OfficeClientEdition="64" Channel="Current"^>^<Product ID="O365ProPlusRetail"^>^<Language ID="MatchOS" /^>^<ExcludeApp ID="Access" /^>^<ExcludeApp ID="Groove" /^>^<ExcludeApp ID="Lync" /^>^<ExcludeApp ID="OneDrive" /^>^<ExcludeApp ID="OneNote" /^>^<ExcludeApp ID="Outlook" /^>^<ExcludeApp ID="Publisher" /^>^<ExcludeApp ID="Teams" /^>^<ExcludeApp ID="Bing" /^>^</Product^>^</Add^>^<Property Name="FORCEAPPSHUTDOWN" Value="TRUE" /^>^<Updates Enabled="TRUE" /^>^<RemoveMSI /^>^</Configuration^> > Configuration.xml
 
 
 @if not exist "setup.exe" (
