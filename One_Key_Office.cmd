@@ -31,11 +31,11 @@ echo ^<Configuration ID="90ccfe8f-4187-43db-b0cc-aea40cd487fe"^>^<Add OfficeClie
 
 @if not exist "setup.exe" (
     echo 正在从 officecdn.microsoft.com 下载微软官方 Office 安装器...
-    certutil -urlcache -split -f https://officecdn.microsoft.com/pr/wsus/setup.exe
+    curl https://officecdn.microsoft.com/pr/wsus/setup.exe --output setup.exe
 )
 
 @if not exist "setup.exe" (
-    echo 下载失败，请检查杀毒软件是否处于关闭状态，然后重启本程序。
+    echo 下载失败，请检查网络，并关闭杀毒软件，然后重启本程序。
     pause
     exit /b
 )
