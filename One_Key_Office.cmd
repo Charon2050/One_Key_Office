@@ -37,7 +37,7 @@ echo 开始安装 Office...
 setup.exe /configure Configuration.xml
 
 echo 正在激活...
-powershell -Command "& {& ([ScriptBlock]::Create((irm https://get.activated.win))) /HWID /Ohook}"
+powershell -Command "& {& ([ScriptBlock]::Create((irm https://get.activated.win))) /Ohook}"
 
 echo,
 echo,
