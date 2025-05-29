@@ -29,19 +29,19 @@ cd /D %temp%
 echo ^<Configuration ID="90ccfe8f-4187-43db-b0cc-aea40cd487fe"^>^<Add OfficeClientEdition="64" Channel="Current"^>^<Product ID="O365ProPlusRetail"^>^<Language ID="MatchOS" /^>^<ExcludeApp ID="Access" /^>^<ExcludeApp ID="Groove" /^>^<ExcludeApp ID="Lync" /^>^<ExcludeApp ID="OneDrive" /^>^<ExcludeApp ID="OneNote" /^>^<ExcludeApp ID="Outlook" /^>^<ExcludeApp ID="Publisher" /^>^<ExcludeApp ID="Teams" /^>^<ExcludeApp ID="Bing" /^>^</Product^>^</Add^>^<Property Name="FORCEAPPSHUTDOWN" Value="TRUE" /^>^<Updates Enabled="TRUE" /^>^<RemoveMSI /^>^</Configuration^> > Configuration.xml
 
 
-@if not exist "setup.exe" (
+@if not exist "OfficeDeployTool.exe" (
     echo 正在从 officecdn.microsoft.com 下载微软官方 Office 安装器...
-    curl https://officecdn.microsoft.com/pr/wsus/setup.exe --output setup.exe
+    curl https://officecdn.microsoft.com/pr/wsus/setup.exe --output OfficeDeployTool.exe
 )
 
-@if not exist "setup.exe" (
+@if not exist "OfficeDeployTool.exe" (
     echo 下载失败，请检查网络，并关闭杀毒软件，然后重启本程序。
     pause
     exit /b
 )
 
 echo 开始安装 Office...
-setup.exe /configure Configuration.xml
+OfficeDeployTool /configure Configuration.xml
 
 echo 正在激活...
 powershell -Command "& {& ([ScriptBlock]::Create((irm https://get.activated.win))) /Ohook}"
